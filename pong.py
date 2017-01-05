@@ -41,7 +41,7 @@ pos_y = int(0.5 * HEIGHT)
 speed_y = BALL_SPEED
 BALL_COLOR = BLACK
 BALL_RADIUS = 4
-PADDLE_SPEED = 12
+PADDLE_SPEED = 3
 PADDLE_HEIGHT = 80
 PADDLE_WIDTH = 4
 PADDLE_LEFT_COLOR = RED
@@ -61,26 +61,26 @@ while current_mode == MODE_PLAY:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             current_mode = MODE_QUIT
-        elif event.type == pygame.KEYDOWN:
-            keysPressed = pygame.key.get_pressed()
-            if keysPressed[pygame.K_UP]:
-                paddle_right_y = paddle_right_y - PADDLE_SPEED
-                if paddle_right_y < 0:
-                    paddle_right_y = 0;
-            elif keysPressed[pygame.K_DOWN]:
-                paddle_right_y = paddle_right_y + PADDLE_SPEED
-                if paddle_right_y > (HEIGHT - PADDLE_HEIGHT):
-                    paddle_right_y = HEIGHT - PADDLE_HEIGHT
-            if keysPressed[pygame.K_a]:
-                paddle_left_y = paddle_left_y - PADDLE_SPEED
-                if paddle_left_y < 0:
-                    paddle_left_y = 0
-            elif keysPressed[pygame.K_z]:
-                paddle_left_y = paddle_left_y + PADDLE_SPEED
-                if paddle_left_y > (HEIGHT - PADDLE_HEIGHT):
-                    paddle_left_y = HEIGHT - PADDLE_HEIGHT
-            if event.key == pygame.K_q:
-                current_mode = MODE_QUIT
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_q:
+            current_mode = MODE_QUIT
+
+    keysPressed = pygame.key.get_pressed()
+    if keysPressed[pygame.K_UP]:
+        paddle_right_y = paddle_right_y - PADDLE_SPEED
+        if paddle_right_y < 0:
+            paddle_right_y = 0;
+    elif keysPressed[pygame.K_DOWN]:
+        paddle_right_y = paddle_right_y + PADDLE_SPEED
+        if paddle_right_y > (HEIGHT - PADDLE_HEIGHT):
+            paddle_right_y = HEIGHT - PADDLE_HEIGHT
+    if keysPressed[pygame.K_a]:
+        paddle_left_y = paddle_left_y - PADDLE_SPEED
+        if paddle_left_y < 0:
+            paddle_left_y = 0
+    elif keysPressed[pygame.K_z]:
+        paddle_left_y = paddle_left_y + PADDLE_SPEED
+        if paddle_left_y > (HEIGHT - PADDLE_HEIGHT):
+            paddle_left_y = HEIGHT - PADDLE_HEIGHT
 
     ##
     # Draw arena and score
