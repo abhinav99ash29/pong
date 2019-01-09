@@ -6,4 +6,6 @@ Controls:
 
 - Player 1 - move paddle up: A, move paddle down: Z.
 - Player 2 - move paddle up: Up Arrow, move paddle down: Down Arrow.
-- Press Q to quit.
+- Press F11 to toggle between fullscreen and normal view.
+- Press Escape to quit.
+
